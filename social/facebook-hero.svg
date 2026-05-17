@@ -1,0 +1,98 @@
+<svg viewBox="0 0 820 312" width="820" height="312" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Sansita:wght@700;800&amp;family=Schibsted+Grotesk:wght@400;500;600;800&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- Cream background -->
+  <rect width="820" height="312" fill="#FAF6EC"/>
+
+  <!-- Top + bottom editorial border lines -->
+  <line x1="0" y1="0" x2="820" y2="0" stroke="#1B2A4E" stroke-width="3"/>
+  <line x1="0" y1="312" x2="820" y2="312" stroke="#1B2A4E" stroke-width="3"/>
+
+  <!-- ============ LEFT: Notepad spine ============ -->
+  <!-- Yellow spiral binding strip -->
+  <rect x="0" y="0" width="72" height="312" fill="#F4C430"/>
+  <!-- Vertical divider line -->
+  <line x1="72" y1="0" x2="72" y2="312" stroke="#1B2A4E" stroke-width="2"/>
+  <!-- Spiral teeth (top + bottom tabs) -->
+  <rect x="24" y="0" width="24" height="12" rx="3" fill="#FAF6EC" stroke="#1B2A4E" stroke-width="1.5"/>
+  <rect x="24" y="300" width="24" height="12" rx="3" fill="#FAF6EC" stroke="#1B2A4E" stroke-width="1.5"/>
+  <!-- Spiral binding rings — 8 rings, y=30 to y=282, 36px apart, clear of teeth -->
+  <circle cx="36" cy="30"  r="11" fill="#FAF6EC" stroke="#1B2A4E" stroke-width="2"/>
+  <circle cx="36" cy="66"  r="11" fill="#FAF6EC" stroke="#1B2A4E" stroke-width="2"/>
+  <circle cx="36" cy="102" r="11" fill="#FAF6EC" stroke="#1B2A4E" stroke-width="2"/>
+  <circle cx="36" cy="138" r="11" fill="#FAF6EC" stroke="#1B2A4E" stroke-width="2"/>
+  <circle cx="36" cy="174" r="11" fill="#FAF6EC" stroke="#1B2A4E" stroke-width="2"/>
+  <circle cx="36" cy="210" r="11" fill="#FAF6EC" stroke="#1B2A4E" stroke-width="2"/>
+  <circle cx="36" cy="246" r="11" fill="#FAF6EC" stroke="#1B2A4E" stroke-width="2"/>
+  <circle cx="36" cy="282" r="11" fill="#FAF6EC" stroke="#1B2A4E" stroke-width="2"/>
+
+  <!-- ============ PAPER AREA: ruled lines ============ -->
+  <!-- Red margin line -->
+  <line x1="118" y1="24" x2="118" y2="288" stroke="#C8362D" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Ruled lines (subtle) — stop at the vertical divider -->
+  <line x1="90" y1="90"  x2="590" y2="90"  stroke="#1B2A4E" stroke-width="1" opacity="0.12"/>
+  <line x1="90" y1="130" x2="590" y2="130" stroke="#1B2A4E" stroke-width="1" opacity="0.12"/>
+  <line x1="90" y1="170" x2="590" y2="170" stroke="#1B2A4E" stroke-width="1" opacity="0.12"/>
+  <line x1="90" y1="210" x2="590" y2="210" stroke="#1B2A4E" stroke-width="1" opacity="0.12"/>
+  <line x1="90" y1="250" x2="590" y2="250" stroke="#1B2A4E" stroke-width="1" opacity="0.12"/>
+
+  <!-- ============ HEADLINE ============ -->
+  <!-- Vertically centered in 312px banner (cap height ~36px, baseline at 156+18=174) -->
+  <text
+    x="155" y="174"
+    font-family="Sansita, Georgia, serif"
+    font-weight="800"
+    font-size="52"
+    fill="#1B2A4E"
+    letter-spacing="-1.5"
+  >School Supplied<tspan fill="#C8362D">.</tspan></text>
+
+  <!-- ============ DIVIDER ============ -->
+  <line x1="590" y1="40" x2="590" y2="272" stroke="#1B2A4E" stroke-width="1.5" opacity="0.25"/>
+
+  <!-- ============ RIGHT: Tagline + badge ============ -->
+  <!-- Block centered around y=156: top ~95, bottom ~218 -->
+  <!-- Eyebrow label -->
+  <text
+    x="620" y="103"
+    font-family="Schibsted Grotesk, system-ui, sans-serif"
+    font-size="10.5"
+    font-weight="600"
+    fill="#6B6760"
+    letter-spacing="1.0"
+  >AN IPHONE APP FOR PARENTS</text>
+
+  <!-- Tagline lines -->
+  <text
+    x="620" y="140"
+    font-family="Schibsted Grotesk, system-ui, sans-serif"
+    font-size="19"
+    font-weight="500"
+    fill="#1B2A4E"
+  >Every kid&#8217;s list.</text>
+
+  <text
+    x="620" y="166"
+    font-family="Schibsted Grotesk, system-ui, sans-serif"
+    font-size="19"
+    font-weight="500"
+    fill="#1B2A4E"
+  >One shopping trip.</text>
+
+  <!-- URL badge — navy pill -->
+  <rect x="620" y="184" width="194" height="34" rx="8" fill="#1B2A4E"/>
+  <text
+    x="717" y="207"
+    text-anchor="middle"
+    font-family="Sansita, Georgia, serif"
+    font-size="15"
+    font-weight="700"
+    fill="#FAF6EC"
+    letter-spacing="0.4"
+  >schoolsupplied.app</text>
+
+</svg>
