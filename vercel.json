@@ -5,6 +5,7 @@
   ],
   "routes": [
     { "src": "/privacy", "dest": "/privacy.html" },
-    { "src": "/cookies", "dest": "/cookies.html" }
+    { "src": "/cookies", "dest": "/cookies.html" },
+    { "src": "/terms", "dest": "/terms.html" }
   ]
 }
