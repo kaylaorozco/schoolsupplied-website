@@ -3,9 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Terms of Service — School Supplied</title>
-  <meta name="description" content="Terms of Service for School Supplied." />
+  <title>Contact — School Supplied</title>
+  <meta name="description" content="Get in touch with School Supplied — support questions, privacy requests, or anything else." />
   <meta name="theme-color" content="#FAF6EC" />
+
+  <meta property="og:title" content="Contact — School Supplied" />
+  <meta property="og:description" content="Get in touch with School Supplied — support questions, privacy requests, or anything else." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://schoolsupplied.app/contact" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -51,6 +56,7 @@
       padding: var(--s-32) var(--s-24);
     }
 
+    /* Header */
     .topbar {
       display: flex;
       align-items: center;
@@ -92,11 +98,101 @@
     .topnav a { text-decoration: none; }
     .topnav a:hover { text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
 
-    .policy-content {
+    /* Main content */
+    .contact-content {
       padding-top: var(--s-48);
       padding-bottom: var(--s-64);
+      max-width: 680px;
     }
 
+    .contact-content h1 {
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.1;
+      margin: 0 0 var(--s-16);
+      letter-spacing: -0.02em;
+    }
+
+    .contact-content .subhead {
+      font-size: 18px;
+      color: var(--gray);
+      margin: 0 0 var(--s-32);
+    }
+
+    /* Button row */
+    .btn-row {
+      display: flex;
+      gap: var(--s-24);
+      flex-wrap: wrap;
+      margin-bottom: var(--s-48);
+    }
+
+    .btn-card {
+      display: flex;
+      flex-direction: column;
+      gap: var(--s-8);
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--text);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--cream);
+      background: var(--navy);
+      border: 2px solid var(--navy);
+      border-radius: var(--r-md);
+      padding: 11px 24px;
+      text-decoration: none;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+    .btn-primary:hover { opacity: 0.85; text-decoration: none; color: var(--cream); }
+
+    .btn-email-hint {
+      font-size: 13px;
+      color: var(--gray);
+      user-select: text;
+    }
+
+    /* Sections */
+    .contact-section {
+      margin-bottom: var(--s-48);
+    }
+
+    .contact-section h2 {
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: 1.4rem;
+      margin: 0 0 var(--s-12);
+      letter-spacing: -0.01em;
+    }
+
+    .contact-section p {
+      margin: 0 0 var(--s-12);
+    }
+
+    .contact-section ul {
+      margin: 0 0 var(--s-16);
+      padding-left: var(--s-24);
+    }
+
+    .contact-section ul li {
+      margin-bottom: var(--s-4);
+    }
+
+    .postal-block {
+      font-style: normal;
+      line-height: 1.7;
+      border-left: 2px solid var(--navy-16);
+      padding-left: var(--s-16);
+      margin-top: var(--s-12);
+    }
+
+    /* Footer */
     footer {
       border-top: 1.5px solid var(--navy);
       padding-top: var(--s-24);
@@ -112,6 +208,7 @@
 
     @media (max-width: 600px) {
       .topnav { gap: var(--s-16); }
+      .btn-row { flex-direction: column; }
       footer { flex-direction: column; align-items: flex-start; }
     }
   </style>
@@ -140,15 +237,50 @@
       </nav>
     </header>
 
-    <main class="policy-content">
-      <div name="termly-embed" data-id="7480755d-fa28-412c-99ea-27b8d968a980"></div>
-      <script type="text/javascript">(function(d, s, id) {
-        var js, tjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "https://app.termly.io/embed-policy.min.js";
-        tjs.parentNode.insertBefore(js, tjs);
-      }(document, 'script', 'termly-jssdk'));</script>
+    <main class="contact-content">
+
+      <h1>Get in touch.</h1>
+      <p class="subhead">Questions, feedback, or a privacy request — send it our way and we'll get back to you within a few business days.</p>
+
+      <div class="btn-row">
+        <div class="btn-card">
+          <a href="mailto:support@schoolsupplied.app?subject=Support%20Request" class="btn-primary">Email Support</a>
+          <span class="btn-email-hint">support@schoolsupplied.app</span>
+        </div>
+        <div class="btn-card">
+          <a href="mailto:privacy@schoolsupplied.app?subject=Privacy%20Request" class="btn-primary">Privacy Request</a>
+          <span class="btn-email-hint">privacy@schoolsupplied.app</span>
+        </div>
+      </div>
+
+      <section class="contact-section" aria-labelledby="privacy-rights-heading">
+        <h2 id="privacy-rights-heading">Your privacy rights</h2>
+        <p>If you're a US resident, you can ask us to:</p>
+        <ul>
+          <li>Access the personal data we have about you</li>
+          <li>Correct inaccurate information</li>
+          <li>Delete your data</li>
+          <li>Get a copy of your data</li>
+          <li>Opt out of sale or sharing for targeted advertising</li>
+          <li>Withdraw your consent</li>
+          <li>Appeal a previous decision</li>
+          <li>Submit a request on someone else's behalf (authorized agent)</li>
+        </ul>
+        <p>Use the Privacy Request button above, or email <a href="mailto:privacy@schoolsupplied.app">privacy@schoolsupplied.app</a> directly.</p>
+      </section>
+
+      <section class="contact-section" aria-labelledby="other-ways-heading">
+        <h2 id="other-ways-heading">Other ways to reach us</h2>
+        <address class="postal-block">
+          MESQUITE &amp; THORN DIGITAL, LLC<br>
+          Data Protection Officer<br>
+          1018 E Washington St, Suite A<br>
+          Brownsville, TX 78520<br>
+          United States<br>
+          Phone: <a href="tel:+19565893158">+1 (956) 589-3158</a>
+        </address>
+      </section>
+
     </main>
 
     <footer>
@@ -158,7 +290,7 @@
         <a href="mailto:support@schoolsupplied.app">Support</a>
         <a href="/privacy">Privacy</a>
         <a href="/cookies">Cookies</a>
-        <a href="/terms" aria-current="page">Terms</a>
+        <a href="/terms">Terms</a>
       </nav>
     </footer>
 

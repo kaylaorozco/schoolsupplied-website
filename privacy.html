@@ -80,7 +80,7 @@
       font-size: 18px;
       letter-spacing: -0.01em;
     }
-    .wordmark .dot { color: var(--yellow); }
+    .wordmark .dot { color: #C8362D; }
 
     .topnav {
       display: flex;
@@ -136,11 +136,37 @@
         <span class="name">School&nbsp;Supplied<span class="dot">.</span></span>
       </a>
       <nav class="topnav" aria-label="Primary">
-        <a href="mailto:support@schoolsupplied.app">Support</a>
+        <a href="/contact">Contact</a>
       </nav>
     </header>
 
     <main class="privacy-content">
+
+      <div style="
+        background: var(--cream);
+        border: 2px solid var(--navy);
+        border-radius: 16px;
+        padding: var(--s-24);
+        max-width: 680px;
+        margin: 0 auto var(--s-32);
+      ">
+        <h3 style="font-family: var(--display); font-weight: 800; font-size: 1.2rem; margin: 0 0 var(--s-8); letter-spacing: -0.01em;">Want to exercise your privacy rights?</h3>
+        <p style="margin: 0 0 var(--s-16); color: var(--gray);">Submit a request — access, correction, deletion, opt-out, or appeal — and we'll get back to you.</p>
+        <a href="/contact" style="
+          display: inline-flex;
+          align-items: center;
+          font-family: var(--text);
+          font-size: 15px;
+          font-weight: 600;
+          color: var(--cream);
+          background: var(--navy);
+          border: 2px solid var(--navy);
+          border-radius: 10px;
+          padding: 11px 24px;
+          text-decoration: none;
+        " onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">Submit a Privacy Request</a>
+      </div>
+
       <div name="termly-embed" data-id="af4f65f6-ab4a-4a7d-bff7-e967e3f173fb"></div>
       <script type="text/javascript">(function(d, s, id) {
         var js, tjs = d.getElementsByTagName(s)[0];
@@ -156,7 +182,6 @@
       <span>&copy; 2026 School Supplied. All rights reserved.</span>
       <nav style="display:flex; gap: var(--s-16);">
         <a href="mailto:support@schoolsupplied.app">Support</a>
-        <a href="mailto:privacy@schoolsupplied.app">Privacy questions</a>
         <a href="/privacy" aria-current="page">Privacy</a>
         <a href="/cookies">Cookies</a>
         <a href="/terms">Terms</a>
