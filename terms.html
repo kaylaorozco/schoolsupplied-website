@@ -17,6 +17,7 @@
       --yellow:  #F4C430;
       --cream:   #FAF6EC;
       --gray:    #6B6760;
+      --pink:    #ff8a80;
       --navy-16: rgba(27, 42, 78, 0.16);
 
       --display: "Sansita", Georgia, serif;
@@ -62,17 +63,16 @@
     .wordmark {
       display: inline-flex;
       align-items: center;
-      gap: var(--s-12);
+      gap: var(--s-8);
       text-decoration: none;
       color: var(--navy);
     }
     .wordmark .mark {
-      width: 36px; height: 36px;
+      width: 40px; height: 40px;
       border-radius: 9px;
-      background: var(--yellow);
       display: grid;
       place-items: center;
-      border: 1.5px solid var(--navy);
+      overflow: hidden;
     }
     .wordmark .name {
       font-family: var(--display);
@@ -123,15 +123,7 @@
     <header class="topbar">
       <a href="/" class="wordmark" aria-label="School Supplied home">
         <span class="mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#1B2A4E" stroke-width="2" stroke-linecap="round">
-            <rect x="5" y="5" width="14" height="16" rx="1.5" fill="#FAF6EC"/>
-            <line x1="8" y1="3" x2="8" y2="6.5"/>
-            <line x1="12" y1="3" x2="12" y2="6.5"/>
-            <line x1="16" y1="3" x2="16" y2="6.5"/>
-            <line x1="8" y1="11" x2="16" y2="11"/>
-            <line x1="8" y1="14.5" x2="16" y2="14.5"/>
-            <line x1="8" y1="18" x2="13" y2="18"/>
-          </svg>
+          <img src="brand/icon-transparent-40.svg" width="40" height="40" alt="">
         </span>
         <span class="name">School&nbsp;Supplied<span class="dot">.</span></span>
       </a>
