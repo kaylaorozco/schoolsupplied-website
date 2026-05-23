@@ -274,6 +274,19 @@
       margin-bottom: var(--s-4);
     }
 
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: var(--s-8);
+      font-size: 13px;
+      color: var(--gray);
+      margin: var(--s-32) 0 0;
+    }
+    .breadcrumb a { color: var(--gray); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .breadcrumb .sep { opacity: 0.5; }
+    .breadcrumb .current { color: var(--navy); font-weight: 500; }
+
     .back-link {
       display: inline-flex;
       align-items: center;
@@ -282,7 +295,7 @@
       font-weight: 500;
       color: var(--navy);
       text-decoration: none;
-      margin: var(--s-32) 0 0;
+      margin: var(--s-8) 0 0;
     }
     .back-link:hover { text-decoration: underline; }
 
@@ -389,6 +402,11 @@
       </nav>
     </div>
 
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span class="sep">›</span>
+      <span class="current">Contact</span>
+    </nav>
     <a href="/" class="back-link">← Back</a>
 
     <main class="contact-content">
