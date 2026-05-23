@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script src="https://app.termly.io/resource-blocker/d0aefb89-7b31-4d12-ac04-279a35894af9?autoBlock=on"></script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-9B0H37QMB0"></script>
   <script>
@@ -586,6 +587,16 @@
     }
     .sticky-bar-dismiss:hover { opacity: 1; }
 
+    /* Termly cookie banner — always on top, always visible */
+    #termly-code-snippet-support {
+      position: fixed !important;
+      z-index: 2147483647 !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      display: block !important;
+      pointer-events: auto !important;
+    }
+
     /* -----------------------------------------------------------
        Section animations
        ----------------------------------------------------------- */
@@ -990,6 +1001,7 @@
           <li><a href="/cookies">Cookie policy</a></li>
           <li><a href="/terms">Terms of service</a></li>
           <li><a href="/delete-account">Delete your account</a></li>
+          <li><a href="#" class="termly-display-preferences">Consent Preferences</a></li>
         </ul>
       </div>
 
