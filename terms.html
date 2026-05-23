@@ -7,6 +7,11 @@
   <meta name="description" content="Terms of Service for School Supplied." />
   <meta name="theme-color" content="#FAF6EC" />
 
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Sansita:wght@700;800&family=Schibsted+Grotesk:wght@400;500;600;800&display=swap" rel="stylesheet" />
@@ -15,9 +20,11 @@
     :root {
       --navy:    #1B2A4E;
       --yellow:  #F4C430;
+      --red:     #C8362D;
       --cream:   #FAF6EC;
       --gray:    #6B6760;
       --pink:    #ff8a80;
+      --navy-08: rgba(27, 42, 78, 0.08);
       --navy-16: rgba(27, 42, 78, 0.16);
 
       --display: "Sansita", Georgia, serif;
@@ -30,7 +37,7 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; }
-    html { -webkit-text-size-adjust: 100%; }
+    html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
     body {
       margin: 0;
       background: var(--cream);
@@ -49,21 +56,28 @@
     .page {
       max-width: 1120px;
       margin: 0 auto;
-      padding: var(--s-32) var(--s-24);
+      padding: 0 var(--s-24) var(--s-32);
     }
 
+    .site-header {
+      position: sticky;
+      top: 0;
+      background: var(--cream);
+      z-index: 50;
+      margin: 0 calc(-1 * var(--s-24));
+    }
     .topbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: var(--s-16);
-      padding-bottom: var(--s-24);
+      padding: var(--s-24) var(--s-24);
       border-bottom: 1.5px solid var(--navy);
     }
     .wordmark {
       display: inline-flex;
       align-items: center;
-      gap: var(--s-8);
+      gap: var(--s-4);
       text-decoration: none;
       color: var(--navy);
     }
@@ -73,64 +87,232 @@
       display: grid;
       place-items: center;
       overflow: hidden;
+      margin-right: -8px;
     }
     .wordmark .name {
       font-family: var(--display);
       font-weight: 800;
-      font-size: 18px;
+      font-size: 22px;
       letter-spacing: -0.01em;
+      line-height: 1;
     }
-    .wordmark .dot { color: #C8362D; }
-
+    .wordmark .name .dot { color: var(--red); }
     .topnav {
       display: flex;
       align-items: center;
       gap: var(--s-24);
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 500;
+      letter-spacing: 0.02em;
     }
     .topnav a { text-decoration: none; }
-    .topnav a:hover { text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
+    .topnav a:hover { text-decoration: underline; text-underline-offset: 4px; }
+    .topnav .nav-notify-btn {
+      display: inline-flex;
+      align-items: center;
+      background: var(--navy);
+      color: var(--cream);
+      border: 1.5px solid var(--navy);
+      border-radius: var(--r-md);
+      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: opacity 120ms ease;
+    }
+    .topnav .nav-notify-btn:hover { opacity: 0.85; text-decoration: none; }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      width: 36px;
+      height: 36px;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--navy);
+      border-radius: 2px;
+      transition: transform 200ms ease, opacity 200ms ease;
+    }
+    .hamburger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .hamburger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      gap: 0;
+      background: var(--cream);
+      border-bottom: 1.5px solid var(--navy);
+      padding: var(--s-8) 0 var(--s-16);
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      padding: 12px var(--s-24);
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--navy);
+      text-decoration: none;
+      border-bottom: 1px solid var(--navy-08);
+    }
+    .mobile-nav a:last-child { border-bottom: none; }
+    .mobile-nav a:hover { background: var(--navy-08); }
+    .mobile-nav .nav-notify-btn {
+      margin: var(--s-12) var(--s-24) 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--navy);
+      color: var(--cream);
+      border: 1.5px solid var(--navy);
+      border-radius: var(--r-md);
+      padding: 10px 14px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    @media (max-width: 640px) {
+      .topnav { display: none; }
+      .hamburger { display: flex; }
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: var(--s-8);
+      font-size: 13px;
+      color: var(--gray);
+      margin: var(--s-32) 0 0;
+    }
+    .breadcrumb a { color: var(--gray); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .breadcrumb .sep { opacity: 0.5; }
+    .breadcrumb .current { color: var(--navy); font-weight: 500; }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--s-8);
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--navy);
+      text-decoration: none;
+      margin: var(--s-8) 0 0;
+    }
+    .back-link:hover { text-decoration: underline; }
 
     .policy-content {
-      padding-top: var(--s-48);
+      padding-top: var(--s-32);
       padding-bottom: var(--s-64);
     }
 
-    footer {
+    footer.foot {
       border-top: 1.5px solid var(--navy);
-      padding-top: var(--s-24);
+      padding: var(--s-32) var(--s-24) var(--s-16);
+      display: grid;
+      grid-template-columns: 1.5fr 0.6fr 1.4fr 1fr;
+      gap: var(--s-32);
+      align-items: start;
+      background: var(--cream);
+      margin: 0 calc(-1 * var(--s-24));
+    }
+    @media (max-width: 720px) {
+      footer.foot { grid-template-columns: 1fr; gap: var(--s-24); }
+    }
+    .foot-col h4 {
+      font-family: var(--text);
+      font-weight: 600;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin: 0 0 var(--s-12);
+    }
+    .foot-col p, .foot-col a {
+      font-size: 15px;
+      color: var(--navy);
+      margin: 0;
+    }
+    .foot-col ul {
+      list-style: none; padding: 0; margin: 0;
+      display: flex; flex-direction: column; gap: 6px;
+    }
+    .foot-tag {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: -0.01em;
+      color: var(--navy);
+      margin: 0 0 var(--s-8);
+    }
+    .foot-tag .dot { color: var(--red); }
+    .foot-fine {
+      grid-column: 1 / -1;
       display: flex;
-      align-items: center;
       justify-content: space-between;
       gap: var(--s-16);
       flex-wrap: wrap;
-      font-size: 13px;
+      padding-top: var(--s-24);
+      border-top: 1px dashed var(--navy-16);
+      font-size: 12px;
       color: var(--gray);
+      letter-spacing: 0.02em;
     }
-    footer a { color: var(--gray); }
-
-    @media (max-width: 600px) {
-      .topnav { gap: var(--s-16); }
-      footer { flex-direction: column; align-items: flex-start; }
+    .foot-disclosure {
+      flex-basis: 100%;
+      margin: 0 0 var(--s-8);
     }
+    .foot-disclosure a { color: inherit; }
   </style>
 </head>
 <body>
 
   <div class="page">
 
-    <header class="topbar">
-      <a href="/" class="wordmark" aria-label="School Supplied home">
-        <span class="mark" aria-hidden="true">
-          <img src="brand/icon-transparent-40.svg" width="40" height="40" alt="">
-        </span>
-        <span class="name">School&nbsp;Supplied<span class="dot">.</span></span>
-      </a>
-      <nav class="topnav" aria-label="Primary">
+    <div class="site-header">
+      <header class="topbar">
+        <a href="/" class="wordmark" aria-label="School Supplied home">
+          <span class="mark" aria-hidden="true">
+            <img src="brand/icon-transparent-40.svg" width="40" height="40" alt="">
+          </span>
+          <span class="name">School&nbsp;Supplied<span class="dot">.</span></span>
+        </a>
+        <nav class="topnav" aria-label="Primary">
+          <a href="/#screens">Screens</a>
+          <a href="/contact">Contact</a>
+          <a href="/#notify" class="nav-notify-btn">Get notified</a>
+        </nav>
+        <button class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav" onclick="
+          const open = this.getAttribute('aria-expanded') === 'true';
+          this.setAttribute('aria-expanded', !open);
+          document.getElementById('mobile-nav').classList.toggle('open', !open);
+        ">
+          <span></span><span></span><span></span>
+        </button>
+      </header>
+      <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
+        <a href="/#screens">Screens</a>
         <a href="/contact">Contact</a>
+        <a href="/#notify" class="nav-notify-btn">Get notified</a>
       </nav>
-    </header>
+    </div>
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span class="sep">›</span>
+      <span class="current">Terms of Service</span>
+    </nav>
+    <a href="/" class="back-link">← Back</a>
 
     <main class="policy-content">
       <div name="termly-embed" data-id="7480755d-fa28-412c-99ea-27b8d968a980"></div>
@@ -143,15 +325,46 @@
       }(document, 'script', 'termly-jssdk'));</script>
     </main>
 
-    <footer>
-      <p style="flex-basis: 100%; margin: 0 0 8px;">By using this site, you're agreeing to our <a href="/terms">Terms</a> and <a href="/privacy">Privacy Policy</a> — the usual.</p>
-      <span>&copy; 2026 School Supplied. All rights reserved.</span>
-      <nav style="display:flex; gap: var(--s-16);">
-        <a href="mailto:support@schoolsupplied.app">Support</a>
-        <a href="/privacy">Privacy</a>
-        <a href="/cookies">Cookies</a>
-        <a href="/terms" aria-current="page">Terms</a>
-      </nav>
+    <footer class="foot">
+      <div class="foot-col">
+        <p class="foot-tag">School&nbsp;Supplied<span class="dot">.</span></p>
+        <p style="color: var(--gray); font-size: 14px; max-width: 36ch;">
+          A parent-built app for keeping every kid's school life organized — one calm place for the lists, the supplies, and everything that follows.
+        </p>
+      </div>
+
+      <div class="foot-col">
+        <h4>Social</h4>
+        <ul>
+          <li><a href="https://www.tiktok.com/@schoolsupplied.app" target="_blank" rel="noopener">TikTok</a></li>
+          <li><a href="https://www.instagram.com/schoolsupplied.app" target="_blank" rel="noopener">Instagram</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="mailto:support@schoolsupplied.app">support@schoolsupplied.app</a></li>
+          <li><a href="mailto:hello@schoolsupplied.app">hello@schoolsupplied.app</a></li>
+          <li><a href="mailto:privacy@schoolsupplied.app">privacy@schoolsupplied.app</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h4>Privacy &amp; Use</h4>
+        <ul>
+          <li><a href="/privacy">Privacy policy</a></li>
+          <li><a href="/cookies">Cookie policy</a></li>
+          <li><a href="/terms">Terms of service</a></li>
+          <li><a href="/delete-account">Delete your account</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-fine">
+        <p class="foot-disclosure">By using this site, you're agreeing to our <a href="/terms">Terms</a> and <a href="/privacy">Privacy Policy</a> — the usual.</p>
+        <span>© 2026 School Supplied™. All rights reserved. Made by one parent who got tired of the supply-list scramble.</span>
+        <span>schoolsupplied.app</span>
+      </div>
     </footer>
 
   </div>
