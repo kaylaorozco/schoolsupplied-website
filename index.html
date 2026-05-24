@@ -334,14 +334,13 @@
        ----------------------------------------------------------- */
     .screens {
       padding: var(--s-48) 0 var(--s-64);
-      border-top: 1.5px solid var(--navy);
     }
     .screens-header {
       display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: var(--s-24);
-      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: var(--s-12);
       margin-bottom: var(--s-48);
     }
     .screens-header h2 {
@@ -696,15 +695,6 @@
         </p>
 
         <div>
-          <p class="form-headline">The school supply list app launches July 2026.</p>
-          <p class="form-subhead">Add your email and be first to know when School Supplied launches + updates along the way.</p>
-          <a href="#notify" class="app-store-badge" style="display:inline-flex; margin-top: var(--s-4); text-decoration:none;"
-             onclick="event.preventDefault(); document.getElementById('notify').scrollIntoView({behavior:'smooth'});">
-            <span class="copy">
-              <span class="bot">Get notified</span>
-            </span>
-          </a>
-          <p class="form-microcopy" style="margin-top: var(--s-12); font-size: 11px;">No spam. One email at launch, plus occasional updates. Unsubscribe anytime.</p>
         </div>
       </div>
 
@@ -744,11 +734,30 @@
       </div>
     </section>
 
+    <!-- ============== MID-PAGE EMAIL CAPTURE (Kit form 02be3f3b12) ============== -->
+    <section id="notify" class="reveal-pop" style="border-top: 1.5px solid var(--navy); border-bottom: 1.5px solid var(--navy); padding: var(--s-48) var(--s-24); background: #F4A29B; margin: 0 calc(-1 * var(--s-24));">
+      <script async data-uid="02be3f3b12" src="https://school-supplied.kit.com/02be3f3b12/index.js"></script>
+      <style>.formkit-form[data-uid="02be3f3b12"]{margin-left:auto !important;margin-right:auto !important;}</style>
+    </section>
+
+    <!-- ============== SOCIAL ============== -->
+    <section style="background: var(--navy); margin: 0 calc(-1 * var(--s-24)); padding: var(--s-32) var(--s-24); display: flex; align-items: center; justify-content: center; gap: var(--s-24); flex-wrap: wrap;">
+      <span style="font-family: var(--text); font-weight: 600; font-size: 20px; color: var(--cream);">Follow the journey:</span>
+      <div style="display: flex; align-items: center; gap: var(--s-20);">
+        <a href="https://www.instagram.com/schoolsupplied.app" target="_blank" rel="noopener" style="display:inline-flex; text-decoration:none;">
+          <img src="/icons/Instagram_Glyph_White.svg" alt="Instagram" width="28" height="28" style="display:block;">
+        </a>
+        <a href="https://www.tiktok.com/@schoolsupplied.app" target="_blank" rel="noopener" style="display:inline-flex; text-decoration:none;">
+          <img src="/icons/TikTok-logo-CMYK-Horizontal-white-simplified.png" alt="TikTok" height="28" style="display:block;">
+        </a>
+      </div>
+    </section>
+
     <!-- ============== SCREENSHOTS ============== -->
     <section class="screens" id="screens">
       <div class="screens-header reveal">
         <h2>Snap. Review.<br/>Shop in one trip.</h2>
-        <p>A peek at the app, mid-build. Final polish ships with launch.</p>
+        <p>A peek at the app, mid-build.</p>
       </div>
 
       <div class="screens-grid">
@@ -959,16 +968,19 @@
       </div>
     </section>
 
-    <!-- ============== MID-PAGE EMAIL CAPTURE (Kit form 02be3f3b12) ============== -->
-    <section id="notify" class="reveal-pop" style="border-top: 1.5px solid var(--navy); padding: var(--s-48) var(--s-24); background: var(--pink); margin: 0 calc(-1 * var(--s-24));">
-      <script async data-uid="02be3f3b12" src="https://school-supplied.kit.com/02be3f3b12/index.js"></script>
-      <style>.formkit-form[data-uid="02be3f3b12"]{margin-left:auto !important;margin-right:auto !important;}</style>
+    <!-- ============== POST-SCREENS CTA ============== -->
+    <section class="reveal" style="border-top: 1.5px solid var(--navy); padding: var(--s-48) 0; text-align: center;">
+      <a href="#notify" class="app-store-badge" style="text-decoration:none; padding: 14px 52px; font-size: 17px;"
+         onclick="event.preventDefault(); document.getElementById('notify').scrollIntoView({behavior:'smooth'});">
+        <span class="copy">
+          <span class="bot">Get notified</span>
+        </span>
+      </a>
     </section>
 
     <!-- ============== FOOTER ============== -->
     <footer class="foot">
       <div class="foot-col">
-        <p class="foot-tag">School&nbsp;Supplied<span class="dot">.</span></p>
         <p style="color: var(--gray); font-size: 14px; max-width: 36ch;">
           A parent-built app for keeping every kid’s school life organized — one calm place for the lists, the supplies, and everything that follows.
         </p>
@@ -1003,8 +1015,7 @@
       </div>
 
       <div class="foot-fine">
-        <p class="foot-disclosure">By using this site, you're agreeing to our <a href="/terms">Terms</a> and <a href="/privacy">Privacy Policy</a> — the usual.</p>
-        <span>© 2026 School Supplied™. All rights reserved. Made by one parent who got tired of the supply-list scramble.</span>
+<span>© 2026 School Supplied™. All rights reserved. Made by one parent who got tired of the supply-list scramble.</span>
         <span>schoolsupplied.app</span>
       </div>
     </footer>
