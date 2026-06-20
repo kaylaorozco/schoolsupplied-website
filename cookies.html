@@ -107,7 +107,7 @@
     }
     .topnav a { text-decoration: none; }
     .topnav a:hover { text-decoration: underline; text-underline-offset: 4px; }
-    .topnav .nav-notify-btn {
+    .topnav .nav-download-btn {
       display: inline-flex;
       align-items: center;
       background: var(--navy);
@@ -121,7 +121,7 @@
       white-space: nowrap;
       transition: opacity 120ms ease;
     }
-    .topnav .nav-notify-btn:hover { opacity: 0.85; text-decoration: none; }
+    .topnav .nav-download-btn:hover { opacity: 0.85; text-decoration: none; }
 
     .hamburger {
       display: none;
@@ -166,7 +166,7 @@
     }
     .mobile-nav a:last-child { border-bottom: none; }
     .mobile-nav a:hover { background: var(--navy-08); }
-    .mobile-nav .nav-notify-btn {
+    .mobile-nav .nav-download-btn {
       margin: var(--s-12) var(--s-24) 0;
       display: inline-flex;
       align-items: center;
@@ -290,7 +290,7 @@
         <nav class="topnav" aria-label="Primary">
           <a href="/#screens">Screens</a>
           <a href="/contact">Contact</a>
-          <a href="/#notify" class="nav-notify-btn">Get notified</a>
+          <a href="https://apps.apple.com/us/app/school-supplied/id6777847242" class="nav-download-btn" target="_blank" rel="noopener">Download</a>
         </nav>
         <button class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav" onclick="
           const open = this.getAttribute('aria-expanded') === 'true';
@@ -303,7 +303,7 @@
       <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
         <a href="/#screens">Screens</a>
         <a href="/contact">Contact</a>
-        <a href="/#notify" class="nav-notify-btn">Get notified</a>
+        <a href="https://apps.apple.com/us/app/school-supplied/id6777847242" class="nav-download-btn" target="_blank" rel="noopener">Download</a>
       </nav>
     </div>
 
