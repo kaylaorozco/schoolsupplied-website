@@ -41,7 +41,7 @@
       --red:     #C8362D;  /* accent only, ≤10% of frame */
       --cream:   #FAF6EC;  /* default background */
       --gray:    #6B6760;  /* secondary text */
-      --pink:    #ff8a80;
+      --pink:    #F4A29B;  /* brand pink — matches app screenshots */
       --navy-08: rgba(27, 42, 78, 0.08);
       --navy-16: rgba(27, 42, 78, 0.16);
 
@@ -133,7 +133,7 @@
     }
     .topnav a { text-decoration: none; }
     .topnav a:hover { text-decoration: underline; text-underline-offset: 4px; }
-    .topnav .nav-notify-btn {
+    .topnav .nav-download-btn {
       display: inline-flex;
       align-items: center;
       background: var(--navy);
@@ -147,7 +147,7 @@
       white-space: nowrap;
       transition: opacity 120ms ease;
     }
-    .topnav .nav-notify-btn:hover { opacity: 0.85; text-decoration: none; }
+    .topnav .nav-download-btn:hover { opacity: 0.85; text-decoration: none; }
 
     /* Hamburger button — mobile only */
     .hamburger {
@@ -200,7 +200,7 @@
     }
     .mobile-nav a:last-child { border-bottom: none; }
     .mobile-nav a:hover { background: var(--navy-08); }
-    .mobile-nav .nav-notify-btn {
+    .mobile-nav .nav-download-btn {
       margin: var(--s-12) var(--s-24) 0;
       display: inline-flex;
       align-items: center;
@@ -265,8 +265,6 @@
       margin: 0 0 var(--s-32);
     }
 
-    /* App Store badge — built as proper navy-on-cream, custom-drawn
-       so it inherits the style guide instead of an off-the-shelf PNG. */
     .cta-row {
       display: flex;
       align-items: center;
@@ -310,21 +308,6 @@
     }
     .icon-stamp svg { width: 100%; height: 100%; display: block; }
     .icon-stamp img { width: 100%; height: 100%; display: block; border-radius: 22%; }
-    .icon-stamp .ribbon {
-      position: absolute;
-      top: -10px; right: -10px;
-      background: var(--yellow);
-      border: 1.5px solid var(--navy);
-      color: var(--navy);
-      font-family: var(--display);
-      font-weight: 700;
-      font-size: 12px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 6px 10px;
-      border-radius: var(--r-sm);
-      transform: rotate(4deg);
-    }
     @media (max-width: 880px) {
       .icon-stamp { max-width: 220px; }
     }
@@ -351,6 +334,7 @@
       line-height: 1.05;
       margin: 0;
     }
+    .screens .dot { color: var(--red); }
     .screens-header p {
       margin: 0;
       max-width: 38ch;
@@ -371,7 +355,9 @@
     .screen-card .phone {
       width: 100%;
       max-width: 280px;
-      aspect-ratio: 9 / 19;
+      height: auto;
+      aspect-ratio: 600 / 1304;
+      object-fit: contain;
       margin: 0 auto var(--s-20);
       display: block;
     }
@@ -451,138 +437,6 @@
       margin: 0 0 var(--s-8);
     }
     .foot-disclosure a { color: inherit; }
-
-    /* -----------------------------------------------------------
-       Email capture forms
-       ----------------------------------------------------------- */
-    .email-form-block .form-headline {
-      font-family: var(--display);
-      font-weight: 700;
-      font-size: 18px;
-      letter-spacing: -0.01em;
-      line-height: 1.2;
-      margin: 0 0 var(--s-8);
-    }
-    .email-form-block .form-subhead {
-      font-size: 14px;
-      line-height: 1.5;
-      color: var(--gray);
-      margin: 0 0 var(--s-20);
-    }
-    .email-form-block .field-wrap {
-      display: flex;
-      gap: var(--s-8);
-      flex-wrap: wrap;
-      margin-bottom: var(--s-8);
-    }
-    .email-form-block input[type="email"] {
-      flex: 1 1 200px;
-      min-width: 0;
-      font-family: var(--text);
-      font-size: 16px;
-      color: var(--navy);
-      background: var(--cream);
-      border: 2px solid var(--navy);
-      border-radius: var(--r-md);
-      padding: 10px 14px;
-      outline: none;
-    }
-    .email-form-block input[type="email"]::placeholder { color: var(--gray); }
-    .email-form-block button[type="submit"] {
-      font-family: var(--text);
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--cream);
-      background: var(--navy);
-      border: 2px solid var(--navy);
-      border-radius: var(--r-md);
-      padding: 10px 20px;
-      cursor: pointer;
-      white-space: nowrap;
-    }
-    .email-form-block button[type="submit"]:hover { opacity: 0.88; }
-    .email-form-block .form-microcopy {
-      font-size: 12px;
-      color: var(--gray);
-      margin: 0;
-      line-height: 1.4;
-    }
-
-    /* Mid-page email section */
-    .email-mid {
-      border-top: 1.5px solid var(--navy);
-      padding: var(--s-48) 0;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--s-48);
-      align-items: center;
-    }
-    @media (max-width: 720px) {
-      .email-mid { grid-template-columns: 1fr; gap: var(--s-32); }
-    }
-    .email-mid-copy h2 {
-      font-family: var(--display);
-      font-weight: 700;
-      font-size: clamp(26px, 3vw, 36px);
-      letter-spacing: -0.02em;
-      line-height: 1.05;
-      margin: 0 0 var(--s-12);
-    }
-    .email-mid-copy p {
-      font-size: 15px;
-      color: var(--gray);
-      margin: 0;
-    }
-
-    /* Sticky mobile CTA bar — ≤880px only */
-    .sticky-bar {
-      display: none;
-      position: fixed;
-      bottom: 0; left: 0; right: 0;
-      z-index: 100;
-      background: var(--navy);
-      border-top: 2px solid var(--navy);
-      padding: var(--s-12) var(--s-16);
-      align-items: center;
-      gap: var(--s-12);
-    }
-    @media (max-width: 880px) {
-      .sticky-bar { display: flex; }
-      .sticky-bar.dismissed { display: none !important; }
-    }
-    .sticky-bar-text {
-      flex: 1;
-      color: var(--cream);
-      font-size: 13px;
-      line-height: 1.35;
-      margin: 0;
-    }
-    .sticky-bar-text strong { display: block; font-weight: 600; }
-    .sticky-bar-cta {
-      flex: 0 0 auto;
-      font-family: var(--text);
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--navy);
-      background: var(--yellow);
-      border: 2px solid var(--yellow);
-      border-radius: var(--r-md);
-      padding: 8px 14px;
-      text-decoration: none;
-      white-space: nowrap;
-    }
-    .sticky-bar-dismiss {
-      flex: 0 0 auto;
-      background: none;
-      border: none;
-      color: var(--cream);
-      font-size: 22px;
-      line-height: 1;
-      cursor: pointer;
-      padding: 2px 4px;
-      opacity: 0.65;
-    }
-    .sticky-bar-dismiss:hover { opacity: 1; }
 
     /* Termly cookie banner — always on top, always visible */
     #termly-code-snippet-support {
@@ -666,7 +520,7 @@
       <nav class="topnav" aria-label="Primary">
         <a href="#screens" onclick="event.preventDefault(); document.getElementById('screens').scrollIntoView({behavior:'smooth'});">Screens</a>
         <a href="/contact">Contact</a>
-        <a href="#notify" class="nav-notify-btn" onclick="event.preventDefault(); document.getElementById('notify').scrollIntoView({behavior:'smooth'});">Get notified</a>
+        <a href="https://apps.apple.com/us/app/school-supplied/id6777847242" class="nav-download-btn" target="_blank" rel="noopener">Download</a>
       </nav>
       <button class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav" onclick="
         const open = this.getAttribute('aria-expanded') === 'true';
@@ -679,7 +533,7 @@
     <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
       <a href="#screens" onclick="event.preventDefault(); document.getElementById('screens').scrollIntoView({behavior:'smooth'}); document.getElementById('mobile-nav').classList.remove('open'); document.querySelector('.hamburger').setAttribute('aria-expanded','false');">Screens</a>
       <a href="/contact">Contact</a>
-      <a href="#notify" class="nav-notify-btn" onclick="event.preventDefault(); document.getElementById('notify').scrollIntoView({behavior:'smooth'}); document.getElementById('mobile-nav').classList.remove('open'); document.querySelector('.hamburger').setAttribute('aria-expanded','false');">Get notified</a>
+      <a href="https://apps.apple.com/us/app/school-supplied/id6777847242" class="nav-download-btn" target="_blank" rel="noopener" onclick="document.getElementById('mobile-nav').classList.remove('open'); document.querySelector('.hamburger').setAttribute('aria-expanded','false');">Download</a>
     </nav>
     </div>
 
@@ -694,14 +548,56 @@
           Every kid has a list, every list has a dozen specifics, and somehow it all lands on you. School Supplied keeps each child’s supplies, sizes, and requirements organized in one place — so you’re not the one holding it all in your head.
         </p>
 
-        <div>
+        <div class="cta-row">
+          <a href="https://apps.apple.com/us/app/school-supplied/id6777847242" class="app-store-badge" target="_blank" rel="noopener">
+            <svg class="apple" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M17.05 12.04c-.03-2.94 2.4-4.35 2.51-4.42-1.37-2-3.5-2.28-4.26-2.31-1.81-.18-3.54 1.07-4.46 1.07-.92 0-2.34-1.05-3.85-1.02-1.98.03-3.81 1.15-4.83 2.92-2.06 3.58-.53 8.88 1.48 11.79.98 1.42 2.15 3.02 3.69 2.96 1.48-.06 2.04-.96 3.83-.96 1.79 0 2.29.96 3.86.93 1.59-.03 2.6-1.45 3.57-2.88 1.12-1.65 1.59-3.25 1.61-3.33-.04-.02-3.09-1.19-3.12-4.72M14.13 4.36c.81-.99 1.36-2.36 1.21-3.73-1.17.05-2.59.78-3.43 1.76-.75.87-1.41 2.26-1.23 3.6 1.31.1 2.64-.66 3.45-1.63"/>
+            </svg>
+            <span class="copy">
+              <span class="top">Download on the</span>
+              <span class="bot">App Store</span>
+            </span>
+          </a>
+          <p class="availability">Android coming <strong>July 2026</strong></p>
         </div>
       </div>
 
       <!-- Hero icon: the actual app icon, rebuilt as SVG for crispness -->
       <div class="icon-stamp" aria-hidden="true">
         <img src="brand/icon-1024.svg" width="1024" height="1024" alt="School Supplied app icon" style="width:100%;height:100%;display:block;">
-        <span class="ribbon">v1 · July 2026</span>
+      </div>
+    </section>
+
+    <!-- ============== SCREENSHOTS ============== -->
+    <section class="screens" id="screens">
+      <div class="screens-header reveal">
+        <h2>Snap. Review.<br/>Shop in one trip.</h2>
+        <p>A peek at the app.</p>
+      </div>
+
+      <div class="screens-grid">
+
+        <!-- ====== SCREEN 1: Kids overview ====== -->
+        <div class="screen-card reveal-left">
+          <img class="phone" src="/screens/screen-crew.png" alt="App home screen listing each child with their supply-list progress" width="600" height="1304">
+          <h3>Every kid's list, one place<span class="dot">.</span></h3>
+          <p>Manage supply lists for all your kids without the chaos.</p>
+        </div>
+
+        <!-- ====== SCREEN 2: Review captured list ====== -->
+        <div class="screen-card reveal">
+          <img class="phone" src="/screens/screen-duplicates.png" alt="App screen highlighting duplicate supplies shared across kids so you only buy what you need" width="600" height="1304">
+          <h3>Smart enough to spot the duplicates<span class="dot">.</span></h3>
+          <p>We'll find items your kids share so you only buy what you need.</p>
+        </div>
+
+        <!-- ====== SCREEN 3: Combined shopping ====== -->
+        <div class="screen-card reveal-right">
+          <img class="phone" src="/screens/screen-shop.png" alt="App shopping screen with a merged checklist color-coded by kid" width="600" height="1304">
+          <h3>One trip<span class="dot">.</span> All kids<span class="dot">.</span></h3>
+          <p>Your merged shopping list, color-coded by kid so nothing gets missed.</p>
+        </div>
+
       </div>
     </section>
 
@@ -710,11 +606,12 @@
       padding: var(--s-48) 0;
       border-top: 1.5px solid var(--navy);
       text-align: center;
+      background: var(--cream);
     ">
       <div style="max-width: 62ch; margin: 0 auto;">
         <div class="eyebrow" style="justify-content: center;">Why this exists</div>
         <p style="
-          font-size: clamp(16px, 1.3vw, 18px);
+          font-size: clamp(15px, 1.2vw, 17px);
           line-height: 1.65;
           color: var(--navy);
           margin: 0;
@@ -734,12 +631,6 @@
       </div>
     </section>
 
-    <!-- ============== MID-PAGE EMAIL CAPTURE (Kit form 02be3f3b12) ============== -->
-    <section id="notify" class="reveal-pop" style="border-top: 1.5px solid var(--navy); border-bottom: 1.5px solid var(--navy); padding: var(--s-48) var(--s-24); background: #F4A29B; margin: 0 calc(-1 * var(--s-24));">
-      <script async data-uid="02be3f3b12" src="https://school-supplied.kit.com/02be3f3b12/index.js"></script>
-      <style>.formkit-form[data-uid="02be3f3b12"]{margin-left:auto !important;margin-right:auto !important;}</style>
-    </section>
-
     <!-- ============== SOCIAL ============== -->
     <section style="background: var(--navy); margin: 0 calc(-1 * var(--s-24)); padding: var(--s-32) var(--s-24); display: flex; align-items: center; justify-content: center; gap: var(--s-24); flex-wrap: wrap;">
       <span style="font-family: var(--text); font-weight: 600; font-size: 20px; color: var(--cream);">Follow the journey:</span>
@@ -751,231 +642,6 @@
           <img src="/icons/TikTok-logo-CMYK-Horizontal-white-simplified.png" alt="TikTok" height="28" style="display:block;">
         </a>
       </div>
-    </section>
-
-    <!-- ============== SCREENSHOTS ============== -->
-    <section class="screens" id="screens">
-      <div class="screens-header reveal">
-        <h2>Snap. Review.<br/>Shop in one trip.</h2>
-        <p>A peek at the app, mid-build.</p>
-      </div>
-
-      <div class="screens-grid">
-
-        <!-- ====== SCREEN 1: Kids overview ====== -->
-        <div class="screen-card reveal-left">
-          <svg class="phone" viewBox="0 0 280 590" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Home screen showing two children's supply lists">
-            <!-- phone body -->
-            <rect x="2" y="2" width="276" height="586" rx="40" ry="40" fill="#FAF6EC" stroke="#1B2A4E" stroke-width="2"/>
-            <!-- notch -->
-            <rect x="110" y="14" width="60" height="14" rx="7" fill="#1B2A4E"/>
-            <!-- status bar -->
-            <text x="22" y="46" font-family="Schibsted Grotesk" font-size="10" font-weight="600" fill="#1B2A4E">9:41</text>
-            <text x="244" y="46" text-anchor="end" font-family="Schibsted Grotesk" font-size="10" fill="#1B2A4E">●●● ▲</text>
-
-            <!-- Title row -->
-            <text x="22" y="86" font-family="Sansita" font-size="22" font-weight="800" fill="#1B2A4E">Your kids</text>
-            <circle cx="252" cy="80" r="12" fill="none" stroke="#1B2A4E" stroke-width="1.5"/>
-            <text x="252" y="85" text-anchor="middle" font-family="Schibsted Grotesk" font-size="14" font-weight="700" fill="#1B2A4E">+</text>
-
-            <text x="22" y="106" font-family="Schibsted Grotesk" font-size="11" fill="#6B6760">2 kids · 1 trip</text>
-
-            <!-- Card 1: Maya -->
-            <rect x="20" y="124" width="240" height="118" rx="14" fill="#FAF6EC" stroke="#1B2A4E" stroke-width="1.5"/>
-            <!-- avatar -->
-            <rect x="34" y="138" width="34" height="34" rx="9" fill="#F4C430" stroke="#1B2A4E" stroke-width="1.5"/>
-            <text x="51" y="161" text-anchor="middle" font-family="Sansita" font-size="16" font-weight="800" fill="#1B2A4E">M</text>
-            <text x="78" y="151" font-family="Sansita" font-size="15" font-weight="700" fill="#1B2A4E">Maya</text>
-            <text x="78" y="166" font-family="Schibsted Grotesk" font-size="10" fill="#6B6760">3rd grade · Ms. Alvarez</text>
-            <!-- progress -->
-            <text x="34" y="195" font-family="Schibsted Grotesk" font-size="10" font-weight="600" fill="#1B2A4E">12 items</text>
-            <rect x="34" y="202" width="212" height="6" rx="3" fill="none" stroke="#1B2A4E" stroke-width="1"/>
-            <rect x="34" y="202" width="148" height="6" rx="3" fill="#F4C430"/>
-            <text x="34" y="225" font-family="Schibsted Grotesk" font-size="10" fill="#6B6760">8 of 12 in the cart</text>
-
-            <!-- Card 2: Theo -->
-            <rect x="20" y="256" width="240" height="118" rx="14" fill="#FAF6EC" stroke="#1B2A4E" stroke-width="1.5"/>
-            <rect x="34" y="270" width="34" height="34" rx="9" fill="#F4C430" stroke="#1B2A4E" stroke-width="1.5"/>
-            <text x="51" y="293" text-anchor="middle" font-family="Sansita" font-size="16" font-weight="800" fill="#1B2A4E">T</text>
-            <text x="78" y="283" font-family="Sansita" font-size="15" font-weight="700" fill="#1B2A4E">Theo</text>
-            <text x="78" y="298" font-family="Schibsted Grotesk" font-size="10" fill="#6B6760">Kinder · Mr. Patel</text>
-            <text x="34" y="327" font-family="Schibsted Grotesk" font-size="10" font-weight="600" fill="#1B2A4E">9 items</text>
-            <rect x="34" y="334" width="212" height="6" rx="3" fill="none" stroke="#1B2A4E" stroke-width="1"/>
-            <rect x="34" y="334" width="62" height="6" rx="3" fill="#F4C430"/>
-            <text x="34" y="357" font-family="Schibsted Grotesk" font-size="10" fill="#6B6760">3 of 9 in the cart</text>
-
-            <!-- Big CTA -->
-            <rect x="20" y="396" width="240" height="52" rx="14" fill="#1B2A4E"/>
-            <text x="140" y="429" text-anchor="middle" font-family="Sansita" font-size="16" font-weight="700" fill="#FAF6EC">Start shopping</text>
-
-            <!-- Secondary -->
-            <text x="140" y="475" text-anchor="middle" font-family="Schibsted Grotesk" font-size="11" font-weight="500" fill="#1B2A4E" text-decoration="underline">Snap a new list</text>
-
-            <!-- Tab bar -->
-            <line x1="20" y1="510" x2="260" y2="510" stroke="#1B2A4E" stroke-width="1"/>
-            <text x="60" y="540" text-anchor="middle" font-family="Schibsted Grotesk" font-size="10" font-weight="700" fill="#1B2A4E">Home</text>
-            <text x="140" y="540" text-anchor="middle" font-family="Schibsted Grotesk" font-size="10" font-weight="500" fill="#6B6760">Shop</text>
-            <text x="220" y="540" text-anchor="middle" font-family="Schibsted Grotesk" font-size="10" font-weight="500" fill="#6B6760">Settings</text>
-            <rect x="40" y="544" width="40" height="2" rx="1" fill="#1B2A4E"/>
-          </svg>
-          <h3>Every kid on one page</h3>
-          <p>See each child's list, what's left to buy, and how close you are to done.</p>
-        </div>
-
-        <!-- ====== SCREEN 2: Review captured list ====== -->
-        <div class="screen-card reveal">
-          <svg class="phone" viewBox="0 0 280 590" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Review screen for a freshly captured supply list">
-            <rect x="2" y="2" width="276" height="586" rx="40" ry="40" fill="#FAF6EC" stroke="#1B2A4E" stroke-width="2"/>
-            <rect x="110" y="14" width="60" height="14" rx="7" fill="#1B2A4E"/>
-            <text x="22" y="46" font-family="Schibsted Grotesk" font-size="10" font-weight="600" fill="#1B2A4E">9:41</text>
-            <text x="244" y="46" text-anchor="end" font-family="Schibsted Grotesk" font-size="10" fill="#1B2A4E">●●● ▲</text>
-
-            <!-- Back -->
-            <text x="22" y="80" font-family="Schibsted Grotesk" font-size="12" font-weight="500" fill="#1B2A4E">← Back</text>
-
-            <!-- Title -->
-            <text x="22" y="110" font-family="Sansita" font-size="20" font-weight="800" fill="#1B2A4E">Review the list</text>
-            <text x="22" y="128" font-family="Schibsted Grotesk" font-size="11" fill="#6B6760">Maya · 3rd grade · 12 items found</text>
-
-            <!-- helper card -->
-            <rect x="20" y="146" width="240" height="42" rx="10" fill="#F4C430" stroke="#1B2A4E" stroke-width="1.5"/>
-            <text x="34" y="166" font-family="Schibsted Grotesk" font-size="11" font-weight="600" fill="#1B2A4E">Tap any item to fix it.</text>
-            <text x="34" y="180" font-family="Schibsted Grotesk" font-size="10" fill="#1B2A4E">We flagged 1 we weren't sure about.</text>
-
-            <!-- Items -->
-            <!-- Item 1 -->
-            <rect x="20" y="200" width="240" height="46" rx="10" fill="none" stroke="#1B2A4E" stroke-width="1"/>
-            <rect x="32" y="214" width="18" height="18" rx="4" fill="#1B2A4E"/>
-            <text x="40" y="227" text-anchor="middle" font-family="Schibsted Grotesk" font-size="13" font-weight="700" fill="#FAF6EC">✓</text>
-            <text x="60" y="222" font-family="Schibsted Grotesk" font-size="13" font-weight="600" fill="#1B2A4E">Crayons, 24-pack</text>
-            <text x="60" y="237" font-family="Schibsted Grotesk" font-size="10" fill="#6B6760">×2</text>
-
-            <!-- Item 2 -->
-            <rect x="20" y="254" width="240" height="46" rx="10" fill="none" stroke="#1B2A4E" stroke-width="1"/>
-            <rect x="32" y="268" width="18" height="18" rx="4" fill="none" stroke="#1B2A4E" stroke-width="1.5"/>
-            <text x="60" y="276" font-family="Schibsted Grotesk" font-size="13" font-weight="600" fill="#1B2A4E">Wide-ruled notebooks</text>
-            <text x="60" y="291" font-family="Schibsted Grotesk" font-size="10" fill="#6B6760">×4</text>
-
-            <!-- Item 3 — flagged, with red accent -->
-            <rect x="20" y="308" width="240" height="58" rx="10" fill="none" stroke="#C8362D" stroke-width="1.5"/>
-            <rect x="32" y="322" width="18" height="18" rx="4" fill="none" stroke="#1B2A4E" stroke-width="1.5"/>
-            <text x="60" y="330" font-family="Schibsted Grotesk" font-size="13" font-weight="600" fill="#1B2A4E">Pencil pouch</text>
-            <text x="60" y="345" font-family="Schibsted Grotesk" font-size="10" fill="#6B6760">×1 · needs your check</text>
-            <text x="60" y="358" font-family="Schibsted Grotesk" font-size="10" font-weight="600" fill="#C8362D">Tap to confirm</text>
-
-            <!-- Item 4 -->
-            <rect x="20" y="374" width="240" height="46" rx="10" fill="none" stroke="#1B2A4E" stroke-width="1"/>
-            <rect x="32" y="388" width="18" height="18" rx="4" fill="none" stroke="#1B2A4E" stroke-width="1.5"/>
-            <text x="60" y="396" font-family="Schibsted Grotesk" font-size="13" font-weight="600" fill="#1B2A4E">Glue sticks</text>
-            <text x="60" y="411" font-family="Schibsted Grotesk" font-size="10" fill="#6B6760">×6</text>
-
-            <!-- Item 5 -->
-            <rect x="20" y="428" width="240" height="46" rx="10" fill="none" stroke="#1B2A4E" stroke-width="1"/>
-            <rect x="32" y="442" width="18" height="18" rx="4" fill="none" stroke="#1B2A4E" stroke-width="1.5"/>
-            <text x="60" y="450" font-family="Schibsted Grotesk" font-size="13" font-weight="600" fill="#1B2A4E">Pink eraser</text>
-            <text x="60" y="465" font-family="Schibsted Grotesk" font-size="10" fill="#6B6760">×2</text>
-
-            <!-- Confirm CTA -->
-            <rect x="20" y="492" width="240" height="48" rx="14" fill="#1B2A4E"/>
-            <text x="140" y="522" text-anchor="middle" font-family="Sansita" font-size="15" font-weight="700" fill="#FAF6EC">Save list</text>
-
-            <!-- Home indicator -->
-            <rect x="100" y="565" width="80" height="3" rx="1.5" fill="#1B2A4E"/>
-          </svg>
-          <h3>Confidence, not guesswork</h3>
-          <p>We read the list with the camera, you fix the one item we got wrong, and it's done.</p>
-        </div>
-
-        <!-- ====== SCREEN 3: Combined shopping ====== -->
-        <div class="screen-card reveal-right">
-          <svg class="phone" viewBox="0 0 280 590" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Combined shopping screen with grouped items">
-            <rect x="2" y="2" width="276" height="586" rx="40" ry="40" fill="#FAF6EC" stroke="#1B2A4E" stroke-width="2"/>
-            <rect x="110" y="14" width="60" height="14" rx="7" fill="#1B2A4E"/>
-            <text x="22" y="46" font-family="Schibsted Grotesk" font-size="10" font-weight="600" fill="#1B2A4E">9:41</text>
-            <text x="244" y="46" text-anchor="end" font-family="Schibsted Grotesk" font-size="10" fill="#1B2A4E">●●● ▲</text>
-
-            <text x="22" y="86" font-family="Sansita" font-size="22" font-weight="800" fill="#1B2A4E">Shop</text>
-            <text x="22" y="106" font-family="Schibsted Grotesk" font-size="11" fill="#6B6760">Maya + Theo · combined</text>
-
-            <!-- progress strip -->
-            <rect x="20" y="120" width="240" height="38" rx="10" fill="#1B2A4E"/>
-            <text x="34" y="138" font-family="Schibsted Grotesk" font-size="10" font-weight="600" fill="#FAF6EC" letter-spacing="0.05em">PROGRESS</text>
-            <text x="34" y="152" font-family="Sansita" font-size="14" font-weight="700" fill="#FAF6EC">11 of 21 packed</text>
-            <text x="246" y="146" text-anchor="end" font-family="Sansita" font-size="20" font-weight="800" fill="#F4C430">52%</text>
-
-            <!-- Section: Pens & pencils -->
-            <text x="22" y="184" font-family="Schibsted Grotesk" font-size="10" font-weight="700" fill="#6B6760" letter-spacing="0.12em">PENS &amp; PENCILS</text>
-            <line x1="20" y1="190" x2="260" y2="190" stroke="#1B2A4E" stroke-width="1" stroke-dasharray="2 3"/>
-
-            <!-- row 1 (checked) -->
-            <rect x="32" y="200" width="16" height="16" rx="4" fill="#1B2A4E"/>
-            <text x="40" y="212" text-anchor="middle" font-family="Schibsted Grotesk" font-size="12" font-weight="700" fill="#FAF6EC">✓</text>
-            <text x="58" y="213" font-family="Schibsted Grotesk" font-size="13" fill="#6B6760" text-decoration="line-through">#2 pencils ×24</text>
-            <text x="248" y="213" text-anchor="end" font-family="Schibsted Grotesk" font-size="10" fill="#6B6760">M+T</text>
-
-            <!-- row 2 -->
-            <rect x="32" y="226" width="16" height="16" rx="4" fill="none" stroke="#1B2A4E" stroke-width="1.5"/>
-            <text x="58" y="239" font-family="Schibsted Grotesk" font-size="13" font-weight="500" fill="#1B2A4E">Crayons, 24‑pack ×3</text>
-            <text x="248" y="239" text-anchor="end" font-family="Schibsted Grotesk" font-size="10" fill="#6B6760">M+T</text>
-
-            <!-- row 3 -->
-            <rect x="32" y="252" width="16" height="16" rx="4" fill="none" stroke="#1B2A4E" stroke-width="1.5"/>
-            <text x="58" y="265" font-family="Schibsted Grotesk" font-size="13" font-weight="500" fill="#1B2A4E">Pink erasers ×4</text>
-            <text x="248" y="265" text-anchor="end" font-family="Schibsted Grotesk" font-size="10" fill="#6B6760">M+T</text>
-
-            <!-- Section: Paper -->
-            <text x="22" y="294" font-family="Schibsted Grotesk" font-size="10" font-weight="700" fill="#6B6760" letter-spacing="0.12em">PAPER</text>
-            <line x1="20" y1="300" x2="260" y2="300" stroke="#1B2A4E" stroke-width="1" stroke-dasharray="2 3"/>
-
-            <rect x="32" y="310" width="16" height="16" rx="4" fill="#1B2A4E"/>
-            <text x="40" y="322" text-anchor="middle" font-family="Schibsted Grotesk" font-size="12" font-weight="700" fill="#FAF6EC">✓</text>
-            <text x="58" y="323" font-family="Schibsted Grotesk" font-size="13" fill="#6B6760" text-decoration="line-through">Wide‑ruled notebook ×4</text>
-            <text x="248" y="323" text-anchor="end" font-family="Schibsted Grotesk" font-size="10" fill="#6B6760">M</text>
-
-            <rect x="32" y="336" width="16" height="16" rx="4" fill="none" stroke="#1B2A4E" stroke-width="1.5"/>
-            <text x="58" y="349" font-family="Schibsted Grotesk" font-size="13" font-weight="500" fill="#1B2A4E">Construction paper ×2</text>
-            <text x="248" y="349" text-anchor="end" font-family="Schibsted Grotesk" font-size="10" fill="#6B6760">T</text>
-
-            <!-- Section: Other -->
-            <text x="22" y="378" font-family="Schibsted Grotesk" font-size="10" font-weight="700" fill="#6B6760" letter-spacing="0.12em">OTHER</text>
-            <line x1="20" y1="384" x2="260" y2="384" stroke="#1B2A4E" stroke-width="1" stroke-dasharray="2 3"/>
-
-            <rect x="32" y="394" width="16" height="16" rx="4" fill="none" stroke="#1B2A4E" stroke-width="1.5"/>
-            <text x="58" y="407" font-family="Schibsted Grotesk" font-size="13" font-weight="500" fill="#1B2A4E">Glue sticks ×6</text>
-            <text x="248" y="407" text-anchor="end" font-family="Schibsted Grotesk" font-size="10" fill="#6B6760">M+T</text>
-
-            <rect x="32" y="420" width="16" height="16" rx="4" fill="none" stroke="#1B2A4E" stroke-width="1.5"/>
-            <text x="58" y="433" font-family="Schibsted Grotesk" font-size="13" font-weight="500" fill="#1B2A4E">Tissues, large box ×2</text>
-            <text x="248" y="433" text-anchor="end" font-family="Schibsted Grotesk" font-size="10" fill="#6B6760">M+T</text>
-
-            <!-- Footer note -->
-            <line x1="20" y1="466" x2="260" y2="466" stroke="#1B2A4E" stroke-width="1"/>
-            <text x="140" y="492" text-anchor="middle" font-family="Schibsted Grotesk" font-size="11" font-weight="500" fill="#1B2A4E">10 left · ready when you are</text>
-
-            <!-- tab bar -->
-            <line x1="20" y1="514" x2="260" y2="514" stroke="#1B2A4E" stroke-width="1"/>
-            <text x="60" y="540" text-anchor="middle" font-family="Schibsted Grotesk" font-size="10" font-weight="500" fill="#6B6760">Home</text>
-            <text x="140" y="540" text-anchor="middle" font-family="Schibsted Grotesk" font-size="10" font-weight="700" fill="#1B2A4E">Shop</text>
-            <text x="220" y="540" text-anchor="middle" font-family="Schibsted Grotesk" font-size="10" font-weight="500" fill="#6B6760">Settings</text>
-            <rect x="120" y="544" width="40" height="2" rx="1" fill="#1B2A4E"/>
-
-            <rect x="100" y="565" width="80" height="3" rx="1.5" fill="#1B2A4E"/>
-          </svg>
-          <h3>One trip, every kid</h3>
-          <p>Duplicates merged, grouped by aisle. Check things off as you drop them in the cart.</p>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ============== POST-SCREENS CTA ============== -->
-    <section class="reveal" style="border-top: 1.5px solid var(--navy); padding: var(--s-48) 0; text-align: center;">
-      <a href="#notify" class="app-store-badge" style="text-decoration:none; padding: 14px 52px; font-size: 17px;"
-         onclick="event.preventDefault(); document.getElementById('notify').scrollIntoView({behavior:'smooth'});">
-        <span class="copy">
-          <span class="bot">Get notified</span>
-        </span>
-      </a>
     </section>
 
     <!-- ============== FOOTER ============== -->
