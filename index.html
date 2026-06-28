@@ -273,33 +273,7 @@
       gap: var(--s-24);
       flex-wrap: wrap;
     }
-    .app-store-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--s-12);
-      background: var(--navy);
-      color: var(--cream);
-      border: 1.5px solid var(--navy);
-      border-radius: 12px;
-      padding: 10px 18px 10px 14px;
-      text-decoration: none;
-      font-family: var(--text);
-      transition: transform 120ms ease;
-    }
-    .app-store-badge:hover { transform: translateY(-1px); text-decoration: none; }
-    .app-store-badge .apple { width: 26px; height: 26px; flex: 0 0 26px; }
-    .app-store-badge .copy { line-height: 1.05; }
-    .app-store-badge .copy .top { font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.85; }
-    .app-store-badge .copy .bot { font-family: var(--display); font-weight: 700; font-size: 19px; letter-spacing: 0.005em; margin-top: 2px; }
-
-    .availability {
-      font-size: 13px;
-      color: var(--gray);
-      line-height: 1.4;
-    }
-    .availability strong { color: var(--navy); font-weight: 600; }
-
-    /* The hero "stamp" — the app icon, big, with a tiny taped corner feel
+    /* The hero "stamp"— the app icon, big, with a tiny taped corner feel
        (achieved purely with a navy outline, not a shadow) */
     .icon-stamp {
       position: relative;
@@ -551,16 +525,14 @@
         </p>
 
         <div class="cta-row">
-          <a href="https://apps.apple.com/us/app/school-supplied/id6777847242" class="app-store-badge" target="_blank" rel="noopener">
-            <svg class="apple" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M17.05 12.04c-.03-2.94 2.4-4.35 2.51-4.42-1.37-2-3.5-2.28-4.26-2.31-1.81-.18-3.54 1.07-4.46 1.07-.92 0-2.34-1.05-3.85-1.02-1.98.03-3.81 1.15-4.83 2.92-2.06 3.58-.53 8.88 1.48 11.79.98 1.42 2.15 3.02 3.69 2.96 1.48-.06 2.04-.96 3.83-.96 1.79 0 2.29.96 3.86.93 1.59-.03 2.6-1.45 3.57-2.88 1.12-1.65 1.59-3.25 1.61-3.33-.04-.02-3.09-1.19-3.12-4.72M14.13 4.36c.81-.99 1.36-2.36 1.21-3.73-1.17.05-2.59.78-3.43 1.76-.75.87-1.41 2.26-1.23 3.6 1.31.1 2.64-.66 3.45-1.63"/>
-            </svg>
-            <span class="copy">
-              <span class="top">Download on the</span>
-              <span class="bot">App Store</span>
-            </span>
+          <a href="https://apps.apple.com/us/app/school-supplied/id6777847242" target="_blank" rel="noopener">
+            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                 alt="Download on the App Store" height="52">
           </a>
-          <p class="availability">Android coming <strong>July 2026</strong></p>
+          <a href="#" target="_blank" rel="noopener" id="google-play-badge">
+            <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+                 alt="Get it on Google Play" height="52">
+          </a>
         </div>
       </div>
 
