@@ -273,6 +273,21 @@
       gap: var(--s-24);
       flex-wrap: wrap;
     }
+
+    /* Feedback nudge when a nav CTA is tapped while already at the top —
+       the whole page bobs so the click clearly registers. */
+    @keyframes page-nudge {
+      0%   { transform: translateY(0); }
+      25%  { transform: translateY(12px); }
+      55%  { transform: translateY(-5px); }
+      78%  { transform: translateY(3px); }
+      100% { transform: translateY(0); }
+    }
+    .page.is-nudging { animation: page-nudge 0.5s cubic-bezier(0.34, 1.4, 0.64, 1); }
+    @media (prefers-reduced-motion: reduce) {
+      .page.is-nudging { animation: none; }
+    }
+
     /* The hero "stamp"— the app icon, big, with a tiny taped corner feel
        (achieved purely with a navy outline, not a shadow) */
     .icon-stamp {
@@ -496,7 +511,7 @@
       <nav class="topnav" aria-label="Primary">
         <a href="#screens" onclick="event.preventDefault(); document.getElementById('screens').scrollIntoView({behavior:'smooth'});">Screens</a>
         <a href="/contact">Contact</a>
-        <a href="https://apps.apple.com/us/app/school-supplied/id6777847242" class="nav-download-btn" target="_blank" rel="noopener">Download</a>
+        <a href="#get-app" class="nav-download-btn" onclick="event.preventDefault(); goToGetApp();">Get the app</a>
       </nav>
       <button class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav" onclick="
         const open = this.getAttribute('aria-expanded') === 'true';
@@ -509,7 +524,7 @@
     <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
       <a href="#screens" onclick="event.preventDefault(); document.getElementById('screens').scrollIntoView({behavior:'smooth'}); document.getElementById('mobile-nav').classList.remove('open'); document.querySelector('.hamburger').setAttribute('aria-expanded','false');">Screens</a>
       <a href="/contact">Contact</a>
-      <a href="https://apps.apple.com/us/app/school-supplied/id6777847242" class="nav-download-btn" target="_blank" rel="noopener" onclick="document.getElementById('mobile-nav').classList.remove('open'); document.querySelector('.hamburger').setAttribute('aria-expanded','false');">Download</a>
+      <a href="#get-app" class="nav-download-btn" onclick="event.preventDefault(); document.getElementById('mobile-nav').classList.remove('open'); document.querySelector('.hamburger').setAttribute('aria-expanded','false'); goToGetApp();">Get the app</a>
     </nav>
     </div>
 
@@ -524,7 +539,7 @@
           Every kid has a list, every list has a dozen specifics, and somehow it all lands on you. School Supplied keeps each child’s supplies, sizes, and requirements organized in one place — so you’re not the one holding it all in your head.
         </p>
 
-        <div class="cta-row">
+        <div class="cta-row" id="get-app">
           <a href="https://apps.apple.com/us/app/school-supplied/id6777847242" target="_blank" rel="noopener">
             <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
                  alt="Download on the App Store" height="52">
@@ -664,6 +679,28 @@
 
 
   <script>
+    // Nav "Get the app" CTA: scroll to the store badges. If we're already
+    // there (essentially no scroll needed), bounce the whole page instead so
+    // the tap still gives clear feedback.
+    function goToGetApp() {
+      const target = document.getElementById('get-app');
+      if (!target) return;
+      const header = document.querySelector('.site-header');
+      const headerH = header ? header.offsetHeight : 0;
+      const rect = target.getBoundingClientRect();
+      const destY = Math.max(0, window.scrollY + rect.top - headerH - 12);
+      if (Math.abs(destY - window.scrollY) < 8) {
+        const page = document.querySelector('.page');
+        if (page) {
+          page.classList.remove('is-nudging');
+          void page.offsetWidth; // reflow so the animation can retrigger
+          page.classList.add('is-nudging');
+        }
+      } else {
+        window.scrollTo({ top: destY, behavior: 'smooth' });
+      }
+    }
+
     const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-pop');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
