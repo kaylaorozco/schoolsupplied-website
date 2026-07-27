@@ -369,6 +369,114 @@
     }
 
     /* -----------------------------------------------------------
+       FAQ — native details/summary accordions, no JS
+       ----------------------------------------------------------- */
+    .faq {
+      background: var(--cream);
+      padding: var(--s-64) 0;
+    }
+    .faq-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: var(--s-12);
+      margin-bottom: var(--s-48);
+    }
+    .faq-header h2 {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: clamp(28px, 3.5vw, 40px);
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      margin: 0;
+    }
+    .faq-header p {
+      margin: 0;
+      max-width: 38ch;
+      color: var(--gray);
+      font-size: 15px;
+    }
+    .faq-groups {
+      max-width: 720px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: var(--s-48);
+    }
+    .faq-group-title {
+      font-family: var(--text);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin: 0 0 var(--s-8);
+    }
+    .faq-item {
+      border-bottom: 1px dashed var(--navy-16);
+    }
+    .faq-item:first-of-type {
+      border-top: 1px dashed var(--navy-16);
+    }
+    .faq-item summary {
+      list-style: none;
+      cursor: pointer;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: var(--s-16);
+      padding: var(--s-16) var(--s-4);
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary h3 {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 19px;
+      letter-spacing: -0.01em;
+      line-height: 1.25;
+      margin: 0;
+      color: var(--navy);
+    }
+    .faq-item summary:hover h3 {
+      text-decoration: underline;
+      text-decoration-thickness: 1.5px;
+      text-underline-offset: 3px;
+    }
+    /* Custom marker: a plus that rotates into a close mark when open */
+    .faq-item summary::after {
+      content: "+";
+      flex: none;
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 1;
+      color: var(--navy);
+      transition: transform 200ms ease;
+    }
+    .faq-item[open] summary::after {
+      transform: rotate(45deg);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .faq-item summary::after { transition: none; }
+    }
+    .faq-item summary:focus-visible {
+      outline: 2.5px solid var(--navy);
+      outline-offset: 2px;
+      border-radius: var(--r-sm);
+    }
+    .faq-answer {
+      padding: 0 var(--s-4) var(--s-20);
+      max-width: 60ch;
+    }
+    .faq-answer p {
+      margin: 0;
+      font-size: 15.5px;
+      line-height: 1.6;
+      color: var(--navy);
+    }
+
+    /* -----------------------------------------------------------
        Footer
        ----------------------------------------------------------- */
     footer.foot {
@@ -510,6 +618,7 @@
       </a>
       <nav class="topnav" aria-label="Primary">
         <a href="#screens" onclick="event.preventDefault(); document.getElementById('screens').scrollIntoView({behavior:'smooth'});">Screens</a>
+        <a href="#faq" onclick="event.preventDefault(); document.getElementById('faq').scrollIntoView({behavior:'smooth'});">FAQ</a>
         <a href="/contact">Contact</a>
         <a href="#get-app" class="nav-download-btn" onclick="event.preventDefault(); goToGetApp();">Get the app</a>
       </nav>
@@ -523,6 +632,7 @@
     </header>
     <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
       <a href="#screens" onclick="event.preventDefault(); document.getElementById('screens').scrollIntoView({behavior:'smooth'}); document.getElementById('mobile-nav').classList.remove('open'); document.querySelector('.hamburger').setAttribute('aria-expanded','false');">Screens</a>
+      <a href="#faq" onclick="event.preventDefault(); document.getElementById('faq').scrollIntoView({behavior:'smooth'}); document.getElementById('mobile-nav').classList.remove('open'); document.querySelector('.hamburger').setAttribute('aria-expanded','false');">FAQ</a>
       <a href="/contact">Contact</a>
       <a href="#get-app" class="nav-download-btn" onclick="event.preventDefault(); document.getElementById('mobile-nav').classList.remove('open'); document.querySelector('.hamburger').setAttribute('aria-expanded','false'); goToGetApp();">Get the app</a>
     </nav>
@@ -631,6 +741,358 @@
           <img src="/icons/TikTok-logo-CMYK-Horizontal-white-simplified.png" alt="TikTok" height="28" style="display:block;">
         </a>
       </div>
+    </section>
+
+    <!-- ============== FAQ ============== -->
+    <section class="faq" id="faq">
+      <div class="faq-header reveal">
+        <h2>Questions, answered<span class="dot">.</span></h2>
+        <p>How the app works, what it costs, and what happens to your data.</p>
+      </div>
+
+      <div class="faq-groups">
+
+        <div class="faq-group">
+          <h3 class="faq-group-title">Getting started</h3>
+
+          <details class="faq-item">
+            <summary><h3>How does School Supplied work?</h3></summary>
+            <div class="faq-answer">
+              <p>Take a photo of your child’s school supply list, or type it in by hand. The app turns it into an editable checklist you can review and correct. Do that for each kid, then combine everything into one shopping list.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary><h3>Is there an app that scans a school supply list?</h3></summary>
+            <div class="faq-answer">
+              <p>Yes. School Supplied scans a printed or photographed supply list and turns it into a checklist. Photo scanning is part of the one-time upgrade; see Pricing below.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary><h3>Can I use School Supplied for more than one child?</h3></summary>
+            <div class="faq-answer">
+              <p>Yes. The free version supports one child. The one-time upgrade adds unlimited children, each tracked separately.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary><h3>Does it combine my kids’ lists into one shopping list?</h3></summary>
+            <div class="faq-answer">
+              <p>Yes, once you’ve upgraded and have more than one child. Duplicates are merged, quantities added up, and items grouped so you’re not zigzagging across the store. Each item shows which child it’s for.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary><h3>Can I check items off while I’m in the store?</h3></summary>
+            <div class="faq-answer">
+              <p>Yes. As long as you have a connection, wifi or cell service, you can check things off in real time while you shop.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary><h3>Does School Supplied tell me where to buy the supplies?</h3></summary>
+            <div class="faq-answer">
+              <p>No. There are no store partnerships and no affiliate links. It organizes what you need and leaves the shopping to you.</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="faq-group">
+          <h3 class="faq-group-title">Pricing</h3>
+
+          <details class="faq-item">
+            <summary><h3>Is School Supplied free?</h3></summary>
+            <div class="faq-answer">
+              <p>Yes, free to download. The free version supports one child with manual list entry. A one-time $7.99 upgrade adds photo scanning and unlimited children.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary><h3>How much does School Supplied cost?</h3></summary>
+            <div class="faq-answer">
+              <p>$7.99, paid once. Not a subscription.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary><h3>Do I have to pay for each child?</h3></summary>
+            <div class="faq-answer">
+              <p>No. One purchase covers your whole household, however many kids you add.</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="faq-group">
+          <h3 class="faq-group-title">Privacy</h3>
+
+          <details class="faq-item">
+            <summary><h3>What happens to the photos of my school supply list?</h3></summary>
+            <div class="faq-answer">
+              <p>Your photo stays on your device. Text recognition reads the words on the page there, and it’s that recognized text, not the photo, that’s used to build your list. The text isn’t kept once your list is built. Full details are in the <a href="/privacy">privacy policy</a>.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary><h3>Does School Supplied use AI?</h3></summary>
+            <div class="faq-answer">
+              <p>Yes. The text recognized from your photo is processed by an AI model to identify items and quantities, which is what turns a scan into your checklist. You review everything before it’s saved.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary><h3>Is my child’s information used to train AI models?</h3></summary>
+            <div class="faq-answer">
+              <p>No. Your account details, like your name, email, and child profiles, are never sent to any AI model. What’s sent is the text recognized from your photo. None of it is used to train AI models.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary><h3>Does School Supplied sell or share my data?</h3></summary>
+            <div class="faq-answer">
+              <p>No. Your lists and your children’s information are not sold, and they’re not shared with advertisers.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary><h3>Does the app track how I use it?</h3></summary>
+            <div class="faq-answer">
+              <p>Yes, in a limited way. We use basic analytics tied to your account to understand how the app is used, and crash reporting to catch bugs. Neither collects your list content.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary><h3>Do I need an account to use School Supplied?</h3></summary>
+            <div class="faq-answer">
+              <p>Yes. An account is what keeps your lists safe if you switch phones. You can sign up with email, Apple, or Google.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary><h3>How do I delete my account and my data?</h3></summary>
+            <div class="faq-answer">
+              <p>In the app, go to Settings, then Account, then Delete account. You can also request deletion at <a href="https://schoolsupplied.app/delete-account">schoolsupplied.app/delete-account</a>.</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="faq-group">
+          <h3 class="faq-group-title">Devices and languages</h3>
+
+          <details class="faq-item">
+            <summary><h3>Is School Supplied available on Android?</h3></summary>
+            <div class="faq-answer">
+              <p>Yes. School Supplied is on both the App Store and Google Play.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary><h3>Is School Supplied available in Spanish?</h3></summary>
+            <div class="faq-answer">
+              <p>Yes. The app is fully available in Spanish and follows your phone’s language setting, so there’s nothing to switch on.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary><h3>What if the app reads my supply list wrong?</h3></summary>
+            <div class="faq-answer">
+              <p>You review every list before it’s saved, and anything the app wasn’t confident about gets flagged. Tap any item to fix the name or the quantity.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary><h3>Does it work with handwritten lists?</h3></summary>
+            <div class="faq-answer">
+              <p>It handles printed lists best. Handwriting depends on how neat it is, so the review step matters more there. Nothing gets saved until you’ve approved it.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary><h3>What if my school sends the list as a PDF instead of paper?</h3></summary>
+            <div class="faq-answer">
+              <p>Take a photo or screenshot of it on screen and the app will read it the same way. Direct document scanning is coming in a future update.</p>
+            </div>
+          </details>
+        </div>
+
+      </div>
+
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How does School Supplied work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Take a photo of your child’s school supply list, or type it in by hand. The app turns it into an editable checklist you can review and correct. Do that for each kid, then combine everything into one shopping list."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is there an app that scans a school supply list?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. School Supplied scans a printed or photographed supply list and turns it into a checklist. Photo scanning is part of the one-time upgrade; see Pricing below."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use School Supplied for more than one child?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. The free version supports one child. The one-time upgrade adds unlimited children, each tracked separately."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does it combine my kids’ lists into one shopping list?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, once you’ve upgraded and have more than one child. Duplicates are merged, quantities added up, and items grouped so you’re not zigzagging across the store. Each item shows which child it’s for."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I check items off while I’m in the store?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. As long as you have a connection, wifi or cell service, you can check things off in real time while you shop."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does School Supplied tell me where to buy the supplies?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. There are no store partnerships and no affiliate links. It organizes what you need and leaves the shopping to you."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is School Supplied free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, free to download. The free version supports one child with manual list entry. A one-time $7.99 upgrade adds photo scanning and unlimited children."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How much does School Supplied cost?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "$7.99, paid once. Not a subscription."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I have to pay for each child?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. One purchase covers your whole household, however many kids you add."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens to the photos of my school supply list?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Your photo stays on your device. Text recognition reads the words on the page there, and it’s that recognized text, not the photo, that’s used to build your list. The text isn’t kept once your list is built. Full details are in the privacy policy."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does School Supplied use AI?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. The text recognized from your photo is processed by an AI model to identify items and quantities, which is what turns a scan into your checklist. You review everything before it’s saved."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is my child’s information used to train AI models?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Your account details, like your name, email, and child profiles, are never sent to any AI model. What’s sent is the text recognized from your photo. None of it is used to train AI models."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does School Supplied sell or share my data?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Your lists and your children’s information are not sold, and they’re not shared with advertisers."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does the app track how I use it?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, in a limited way. We use basic analytics tied to your account to understand how the app is used, and crash reporting to catch bugs. Neither collects your list content."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I need an account to use School Supplied?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. An account is what keeps your lists safe if you switch phones. You can sign up with email, Apple, or Google."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I delete my account and my data?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "In the app, go to Settings, then Account, then Delete account. You can also request deletion at schoolsupplied.app/delete-account."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is School Supplied available on Android?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. School Supplied is on both the App Store and Google Play."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is School Supplied available in Spanish?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. The app is fully available in Spanish and follows your phone’s language setting, so there’s nothing to switch on."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What if the app reads my supply list wrong?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You review every list before it’s saved, and anything the app wasn’t confident about gets flagged. Tap any item to fix the name or the quantity."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does it work with handwritten lists?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It handles printed lists best. Handwriting depends on how neat it is, so the review step matters more there. Nothing gets saved until you’ve approved it."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What if my school sends the list as a PDF instead of paper?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Take a photo or screenshot of it on screen and the app will read it the same way. Direct document scanning is coming in a future update."
+            }
+          }
+        ]
+      }
+      </script>
     </section>
 
     <!-- ============== FOOTER ============== -->
